@@ -1,6 +1,7 @@
 import { useEffect  , useState} from "react"
 import { YOUTUBE_VIDEO_API } from "../utils/constants";
 import VideoCard from "./VideoCard";
+import { Link } from "react-router-dom";
 
 const VideoContainer = ()=>{
     const [videoInfo , setVideoInfo] = useState([]);
@@ -8,7 +9,7 @@ const VideoContainer = ()=>{
     const getVideoData = async ()=>{
          const data = await fetch(YOUTUBE_VIDEO_API);
          const json = await data.json();
-         console.log(json);
+        //  console.log(json.items);
          setVideoInfo(json.items);
 
     }
@@ -19,8 +20,8 @@ const VideoContainer = ()=>{
   
 
     return(
-        <div className="videoCard-container flex flex-wrap p-2 m-2">
-           {videoInfo.map((info)=><VideoCard key={info.id}info={info}/>)}
+        <div className="videoCard-container  relative top-16 flex flex-wrap p-2  overflow-y-auto z-1">
+           {videoInfo.map((info)=><Link to={"/watch?v=" + info.id + "?eid" + info.etag} key={info.id}><VideoCard info={info}/></Link>)}
         </div>
     )
 }
