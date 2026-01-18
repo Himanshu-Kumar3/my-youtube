@@ -16,7 +16,7 @@ import { toggleMenu } from '../utils/appSlice'
           <img onClick={toggleMenuHandler} className='h-8 cursor-pointer'  alt="hamburger-icon" src='/hamburger.png' />
 
         </span>
-        <img className='h-8 mx-4'alt="Logo-myYoutube" src='/logo-youtube.webp'/>
+        <img className='h-9 pt-1 mx-4 w-28'alt="Logo-myYoutube" src='/logo-youtube.webp'/>
        </div>
 
        <div className="searchContainer   grow-0 shrink basis-3xl">

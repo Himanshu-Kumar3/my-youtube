@@ -1,7 +1,12 @@
+import { useSelector } from "react-redux";
 const Sidebar = ()=>{
+    const isMenuOpens = useSelector(store=> store.app.isMenuOpen)
+
+    if (!isMenuOpens) return null;
+
     return(
-        <div className="sidebar m-2 p-2 w-62 shadow-lg">
-            <div className="nav-link border-b border-b-gray-400 pb-2 mb-2 ">
+        <div className="sidebar m-2 p-2 w-56 shadow-lg shrink-0">
+            <div className="nav-link border-b border-b-gray-400 pb-2 mb-2 w-full ">
                 <ul >
                     <li className="py-2 font-semibold text-xl">Home</li>
                     <li className="py-2 text-xl">Shorts</li>
