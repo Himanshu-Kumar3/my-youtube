@@ -1,30 +1,46 @@
 import React, { useEffect, useState } from 'react'
-import { useDispatch } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import { toggleMenu } from '../utils/appSlice'
 import { YOUTUBE_SEARCH_API } from '../utils/constants'
+import { cacheResult } from '../utils/searchSlice'
 
  const Head = () => {
   const dispatch = useDispatch()
 
   const [searchText , setSearchText] = useState("");
-  const [searchSuggestions , setSearchSuggestions] = useState([])
-  const [showSuggestion , setShowSuggestion] = useState(false)
+  const [searchSuggestions , setSearchSuggestions] = useState([]);
+  const [showSuggestion , setShowSuggestion] = useState(false);
+
+
+  const searchCache = useSelector(store=> store.search.items);
+  
 
   const toggleMenuHandler= ()=>{
     dispatch(toggleMenu())
   }
 
   const getSearchSuggestions = async ()=>{
+
    const data = await fetch(YOUTUBE_SEARCH_API + searchText);
    const json = await data.json();
    console.log("API Call -" + json[0])
    setSearchSuggestions(json[1])
 
+   dispatch(cacheResult({
+    [searchText] : json[1]
+   }))
+
+
   }
 
   useEffect(()=>{
    const timer = setTimeout(() => {
-    getSearchSuggestions();
+    if(searchCache[searchText]){
+      setSearchSuggestions(searchCache[searchText]);
+    }else{
+          getSearchSuggestions();
+    }
+    
     // console.log(searchText);
     
    }, 200);
@@ -57,7 +73,7 @@ import { YOUTUBE_SEARCH_API } from '../utils/constants'
 
        {showSuggestion && <div className='suggestions absolute top-12 shadow-2xl z-25 rounded-xl left-2 max-h-96 overflow-y-auto scroll-hide w-xl bg-white'>
          <ul>
-          {searchSuggestions.map((e)=><li className='py-2 px-3 hover:bg-gray-100 m-2 rounded-xl' key={e}>🔍 {e}</li>)}
+          {searchSuggestions.map((e)=><li className='py-2 px-3 hover:bg-gray-100 m-2 rounded-xl cursor-pointer' key={e}>🔍 {e}</li>)}
          </ul>
         </div>
  }

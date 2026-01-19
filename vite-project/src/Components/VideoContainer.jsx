@@ -20,7 +20,7 @@ const VideoContainer = ()=>{
   
 
     return(
-        <div className="videoCard-container  relative top-16 flex flex-wrap p-2  overflow-y-auto z-1">
+        <div className="videoCard-container max-w-full  relative top-16 flex flex-wrap p-2  overflow-x-hidden overflow-y-auto z-1">
            {videoInfo.map((info)=><Link to={"/watch?v=" + info.id + "?eid" + info.etag} key={info.id}><VideoCard info={info}/></Link>)}
         </div>
     )

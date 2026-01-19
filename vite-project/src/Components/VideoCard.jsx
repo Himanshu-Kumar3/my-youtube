@@ -10,7 +10,7 @@ const VideoCard = (props)=>{
    
    
     return(
-        <div className={`videoCard m-0  p-2 py-4 ${isMenuOpens ?" h-96 w-[456px] ": "h-108 w-[524px]" }  mx-2 hover:drop-shadow-xl hover:bg-amber-100 hover:rounded-xl  hover:transition-all duration-300`}>
+        <div className={`videoCard m-0 p-2 py-4 ${isMenuOpens ?" h-96 w-[456px] ": "h-108 w-[524px]" }  mx-2 hover:shadow-xl hover:bg-amber-100 hover:rounded-xl  hover:transition-all duration-300`}>
             <img className={`${isMenuOpens ? "w-md h-64":"w-[506px] h-74"}  rounded-xl`} alt="thumbnail" src={info?.snippet?.thumbnails?.high?.url}/>
             <div className="cardInfo flex items-center justify-between mt-4 font-semibold cursor-default">
                 <img className="profile h-10" alt="profile" src="/user-icon.png"/>
