@@ -1,101 +1,66 @@
+import CommentList from "./CommentList";
 
-import Comment from "./Comment";
-
-
- const CommentLists = (comments)=> {comments.map(d=><Comment  data={d}/>)} 
-    
-
- const commentList  = [{
-      name: "Jatin",
-      comment :"This is my Comment",
-      replies :[
+const CommentData = [
+   {
+      name:"Himanshu",
+      text:"This is a comment from himanshu",
+      replies:[]
+   },
+     {
+      name:"Himanshu",
+      text:"This is a comment from himanshu",
+      replies:[
+           {
+             name:"Himanshu",
+             text:"This is a comment from himanshu",
+             replies:[]
+            },
             {
-            
-            name: "Jatin",
-            comment :"This is my Comment",
-            replies :[
-                  {
-            
-                name: "Jatin",
-                comment :"This is my Comment",
-                replies :[
-                  {
-            
-                      name: "Jatin",
-                      comment :"This is my Comment",
-                      replies :[{}],
-   
-                    }],
-   
-            }],
-   
-        },
-        {
-            
-         name: "Jatin",
-          comment :"This is my Comment",
-          replies :[{}],
-   
-        },
-        {
-            
-          name: "Jatin",
-          comment :"This is my Comment",
-          replies :[{}],
-   
-         },
-         {
-            
-            name: "Jatin",
-            comment :"This is my Comment",
-            replies :[{}],
-   
-         }
-     ],
+              name:"Himanshu",
+              text:"This is a comment from himanshu",
+              replies:[
+                 {
+                   name:"Himanshu",
+                   text:"This is a comment from himanshu",
+                   replies:[]
+                 },
+                   {
+                    name:"Himanshu",
+                    text:"This is a comment from himanshu",
+                    replies:[]
+                   }
+              ]
+            }
+      ]
    },
-    {
-      name: "Jatin",
-      comment :"This is my Comment",
-      replies :[{}],
+     {
+      name:"Himanshu",
+      text:"This is a comment from himanshu",
+      replies:[]
    },
-   {
-      name: "Jatin",
-      comment :"This is my Comment",
-      replies :[{}],
+     {
+      name:"Himanshu",
+      text:"This is a comment from himanshu",
+      replies:[]
    },
-   {
-      name: "Jatin",
-      comment :"This is my Comment",
-      replies :[{}],
+     {
+      name:"Himanshu",
+      text:"This is a comment from himanshu",
+      replies:[]
    },
-   {
-      name: "Jatin",
-      comment :"This is my Comment",
-      replies :[{}],
-   },
-   {
-      name: "Jatin",
-      comment :"This is my Comment",
-      replies :[{}],
-   },
-   {
-      name: "Jatin",
-      comment :"This is my Comment",
-      replies :[{}],
-   },
-   {
-      name: "Jatin",
-      comment :"This is my Comment",
-      replies :[{}],
-   },
+     {
+      name:"Himanshu",
+      text:"This is a comment from himanshu",
+      replies:[]
+   }
 ]
 
 const CommentsContainer = ()=>{
 
        return(
-            <div className="my-5 p-2">
+            <div className="my-5 p-2 bg-gray-100 rounded-xl">
                   <h2 className="text-2xl">Comments:</h2>
-                  <CommentLists comments={commentList}/>
+                  <CommentList comments={CommentData}/>
             </div>
       )}
 

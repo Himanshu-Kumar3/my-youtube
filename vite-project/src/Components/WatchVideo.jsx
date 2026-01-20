@@ -6,10 +6,10 @@ import CommentsContainer from './CommentsContainer';
 
 const WatchVideo = () => {
     const [searchParams] = useSearchParams();
-    console.log(searchParams.get("v"));
+    // console.log(searchParams.get("v"));
     
 
-    console.log("Himanshu");
+    // console.log("Himanshu");
     const dispatch = useDispatch();
 
     useEffect(()=>{

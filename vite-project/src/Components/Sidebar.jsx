@@ -1,6 +1,10 @@
 import { useSelector } from "react-redux";
+import { Link } from "react-router";
 const Sidebar = ()=>{
     const isMenuOpens = useSelector(store=> store.app.isMenuOpen)
+     const moveToHome = ()=>{
+        
+     }
 
     if (!isMenuOpens) return null;
 
@@ -8,7 +12,7 @@ const Sidebar = ()=>{
         <div className="sidebar m-2 p-2 w-56 shadow-lg shrink-0 h-full   ">
             <div className="nav-link border-b border-b-gray-400 pb-2 mb-2 w-full ">
                 <ul >
-                    <li className="py-2  font-semibold text-xl cursor-pointer hover:bg-gray-200 px-2 hover:rounded-xl">Home</li>
+                   <Link to="/"><li className="py-2  font-semibold text-xl cursor-pointer hover:bg-gray-200 px-2 hover:rounded-xl" onClick={moveToHome}>Home</li></Link> 
                     <li className="py-2 text-xl cursor-pointer hover:bg-gray-200 px-2 hover:rounded-xl">Shorts</li>
                 </ul>
             </div>

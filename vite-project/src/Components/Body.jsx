@@ -1,7 +1,8 @@
 import { useSelector } from "react-redux"; 
 import MainContainer from "./MainContainer";
 import Sidebar from "./Sidebar";
-import {Outlet} from "react-router-dom"
+
+import { Outlet } from "react-router";
 const Body = ()=>{
 
     const isMenuOpens = useSelector((store)=>store.app.isMenuOpen);
@@ -11,7 +12,7 @@ const Body = ()=>{
                  {isMenuOpens && <Sidebar/>}
             </div>
 
-        <Outlet/>
+       <MainContainer/>
 
         </div>
     )

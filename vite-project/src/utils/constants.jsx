@@ -5,3 +5,5 @@ export const YOUTUBE_VIDEO_API ="https://youtube.googleapis.com/youtube/v3/video
 
 
 export const YOUTUBE_SEARCH_API = "http://suggestqueries.google.com/complete/search?client=firefox&ds=yt&q=";
+
+export const YOUTUBE_SEARCH_RESULT_API = "https://youtube.googleapis.com/youtube/v3/search?part=snippet&maxResults=25&key=" + API_KEY+"&q=" ;
