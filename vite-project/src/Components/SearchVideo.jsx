@@ -1,19 +1,20 @@
-import { useEffect } from "react";
+
 import { YOUTUBE_SEARCH_RESULT_API } from "../utils/constants";
 import { useSelector, useDispatch } from "react-redux";
 import {clearSearchResult} from "../utils/searchVideoSlice"
-import { useNavigate } from "react-router";
+import { useNavigate , Link } from "react-router";
+import SearchVideoCard from "./SearchVideoCard";
 import VideoCard from "./VideoCard";
 
 const SearchVideo = ()=>{
         const dispatch = useDispatch();
         const navigate = useNavigate();
 
-      const getVideoResult = async()=>{
-            const data = await fetch(YOUTUBE_SEARCH_RESULT_API);
-            const json = await data.json()
-            // console.log(json)
-      }
+      // const getVideoResult = async()=>{
+      //       const data = await fetch(YOUTUBE_SEARCH_RESULT_API);
+      //       const json = await data.json()
+            
+      // }
       const searchResult = useSelector(store=>store.searchvideo.results);
       const searchQuery = useSelector(store=>store.searchvideo.query);
 
@@ -26,15 +27,14 @@ const SearchVideo = ()=>{
             dispatch(clearSearchResult());
             navigate("/")
       }
-      useEffect(()=>{
-            getVideoResult()
+      // useEffect(()=>{
+      //       getVideoResult()
             
-      } ,[])
+      // } ,[])
       return (
             <div className="m-30 ">
                   <button className="p-2 border border-gray-200 rounded-lg" onClick={backToHome}>Back to Home</button>
-                  <h2>Hey I am Himanshu</h2>
-                  {filteredResult.map(res=><SearchVideoCard key={res.id.videoId} info={res}/>)}
+                  {filteredResult.map(res=><Link key={res.id.videoId}  to={"/watch?v="+res.id.videoId+"?eid" + res.etag}><SearchVideoCard info={res}/></Link>)}
 
 
             </div>

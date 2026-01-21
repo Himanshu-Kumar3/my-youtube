@@ -25,7 +25,7 @@ import { setSearchResults } from '../utils/searchVideoSlice'
   const onResultClick =(result)=>{
    setSearchText(result);
    setIsSuggestionClicked(true);
-
+   handleSearchSubmit();
    setTimeout(()=>setShowSuggestion(false) , 100)
 
   }
@@ -72,11 +72,11 @@ import { setSearchResults } from '../utils/searchVideoSlice'
   }
 
   useEffect(()=>{
-    if(!searchText.trim() || isSuggestionClicked){
-      setSearchSuggestions([]);
-      setIsSuggestionClicked(false)
-      return
-    }
+    // if(!searchText.trim() || isSuggestionClicked){
+    //   setSearchSuggestions([]);
+    //   setIsSuggestionClicked(false)
+    //   return
+    // }
    const timer = setTimeout(() => {
     if(searchCache[searchText]){
       setSearchSuggestions(searchCache[searchText]);

@@ -51,3 +51,17 @@ If you are developing a production application, we recommend using TypeScript wi
 
     We can also use new map() / set() also 
   -->
+
+
+# Live Chats :-
+  - Challenges :-
+    - GET Live Data => Data Layer
+    - UPDATE The UI => UI layer
+
+  -For UI -> We use
+   - Web Shockets =>  UI <=> BE (bidirectional connection)
+      - can send data from both UI to BE and BE to UI   -Immediately
+      - used in case of live data like-> trading app / whatsapp etc.
+
+   - API polling => UI <= S (after an interval of time UI gets data from Server)    
+      - used in cricbuzz live score -> 25s interval / youtube liveChat -> 1.5s etc

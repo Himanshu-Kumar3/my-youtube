@@ -3,6 +3,7 @@ import { useDispatch } from 'react-redux';
 import { closeMenu } from '../utils/appSlice';
 import { useSearchParams } from 'react-router-dom';
 import CommentsContainer from './CommentsContainer';
+import LiveChat from "./LiveChat";
 
 const WatchVideo = () => {
     const [searchParams] = useSearchParams();
@@ -17,7 +18,7 @@ const WatchVideo = () => {
     },[])
     
   return (
-    <div className='watchVideo relative  text-black font-bold bg-white p-0 ml-20 '>
+    <div className='watchVideo relative  text-black font-bold bg-white p-0 ml-20 mt-30  flex'>
 
       <div className='flex flex-col'>
         <iframe width="1000" height="600" className='rounded-2xl'
@@ -29,7 +30,9 @@ const WatchVideo = () => {
 
             <CommentsContainer/>
            
-      </div>     
+      </div>  
+      <LiveChat/>
+
 
     </div>
   )
